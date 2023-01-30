@@ -8,9 +8,6 @@
 # 3. Any can be thought of as a sequence of OR operations on the provided iterables.
 # 4. It short circuit the execution i.e. stop the execution as soon as the result is known.
 
-print("this is to verify automatically merged to master 123.")
-
-
 ####################################################################
 # all
 ####################################################################
@@ -32,7 +29,7 @@ print("this is to verify automatically merged to master 123.")
 #True
 #False
 
-#test
+
 ####################################################################
 # print (any({False, False, False, False}))
 # print (any((False, True, False, False)))
@@ -40,7 +37,6 @@ print("this is to verify automatically merged to master 123.")
 # False
 # True
 # True
-
 
 ####################################################################
 #all
@@ -56,51 +52,65 @@ print("this is to verify automatically merged to master 123.")
 ####################################################################
 # l = [1, 3, 4, 0]
 # print(any(l))
+#true
+
 # l = [0, False] #0 --> False
 # print(any(l))
+# False
+
 # l = [0, False, 5]
 # print(any(l))
+# true
+
+# l = [False]
+# print(any(l))
+# false
+
 # l = []
 # print(any(l))
-# #True
-#False
-#True
-#False
+# False
 
-
-########################################################################
+####################################################################
 # s = "This is good"
 # print(any(s))
+# true
+
 # # 0 is False
 # # '0' is True
+
 # s = '000'
 # print(any(s))
+# true
+
 # s = ''
 # print(any(s))
-#True
-#True
-#False
+# false
+
 #It takes key. It will false when key = 0(int) | False(Boolean)
 
 
 ####################################################################
 # d = {0: 'False'}
 # print(any(d))
+# false
+
 # d = {0: 'False', 1: 'True'}
 # print(any(d))
+# true
+
 # d = {0: 'False', False: 0}
 # print(any(d))
+# false
+
 # d = {}
 # print(any(d))
+# false
+
 # # 0 is False
 # # '0' is True
 # d = {'0': 'False'}
 # print(any(d))
-#False
-#True
-#False
-#False
-#True
+
 
 
 
