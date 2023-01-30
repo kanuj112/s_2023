@@ -113,84 +113,89 @@
 
 
 
-
-
 ####################################################################
 #The all() method returns True when all elements in the given iterable are true. If not, it returns False.
 ####################################################################
 # all values true
 # l = [1, 3, 4, 5]
 # print(all(l))
+# true
+
 # # all values false
 # l = [0, False]
 # print(all(l))
+# false
+
 # # one false value
 # l = [1, 3, 4, 0]
 # print(all(l))
+# false
+
 # # one true value
 # l = [0, False, 5]
 # print(all(l))
+# false
+
 # # empty iterable
 # l = []
 # print(all(l))
-#True
-#False
-#False
-#False
-#True
-
-
+# true
 
 ####################################################################
 # s = "This is good"
 # print(all(s))
+# true
+
 # # 0 is False
 # # '0' is True
 # s = '000'
 # print(all(s))
+# true
+
 # s = '' # s = " "  it will also return true
 # print(all(s))
-#True
-#True
-#True
-
-
+# true
 
 ####################################################################
 # s = {0: 'False', 1: 'False'}
 # print(all(s))
+# false
+
 # s = {1: 'True', 2: 'True'}
 # print(all(s))
+# true
+
 # s = {1: 'True', False: 0}
 # print(all(s))
+# false
+
 # s = {}
 # print(all(s))
+# true
+
 # # 0 is False
 # # '0' is True
 # s = {'0': 'True'}
 # print(all(s))
-#False
-#True
-#False
-#True
-#True
+# true
 
 
 
 ####################################################################
 # s = " "
 # print(any(s))
+# true
+
 # s = ""
 # print(any(s))
-# #True
-#False
+# false
 
 ####################################################################
 # s = " "
 # print(all(s))
 # s = ""
 # print(all(s))
-#True
-#True
+# True
+# True
 
 ####################################################################
