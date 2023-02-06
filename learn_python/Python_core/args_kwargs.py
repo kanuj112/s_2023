@@ -44,6 +44,7 @@ def abc(a, *b, **c):
 #     print("first argument is ",a)
 #     for i in b:
 #         print(i, end = " ")
+#         print(type(i))
 #     print("\n")
 #     for j in c.items():
 #         print(j)
@@ -52,13 +53,17 @@ def abc(a, *b, **c):
 
 
 # first argument is  anuj
-# {'a': 10} {'b': 20}
+# {'a': 10} <class 'dict'>
+# {'b': 20} <class 'dict'>
+#
 #
 # ('one', 'dbvfdfj')
 # ('two', 'vknjd')
 # ('three', 'fklnhdf')
 # first argument is  {'a': 10}
-# {'b': 20} anuj
+# {'b': 20} <class 'dict'>
+# anuj <class 'str'>
+#
 #
 # ('one', 'dbvfdfj')
 # ('two', 'vknjd')
@@ -71,17 +76,23 @@ def abc(a, *b, **c):
 #     print("first argument is ",a)
 #     for i in b:
 #         print(i, end = " ")
+#         print(type(i))
 #     print("\n")
 #     for j in c.keys():
 #         print(j)
+#         print(type(j))
 # abc("anuj", "kumar", "dfvdf", one = "dbvfdfj", two="vknjd" , three="fklnhdf")
 # first argument is  anuj
-# kumar dfvdf 
-# 
+# kumar <class 'str'>
+# dfvdf <class 'str'>
+#
+#
 # one
+# <class 'str'>
 # two
+# <class 'str'>
 # three
-
+# <class 'str'>
 
 
 ###############################################################
@@ -92,11 +103,13 @@ def abc(a, *b, **c):
 #     print("\n")
 #     for j in c.keys():
 #         print(j)
+#         print(type(j))
 # abc("anuj", "kumar", "dfvdf", one = {"a":"dbvfdfj", "two":"vknjd" , "three":"fklnhdf"})
 # first argument is  anuj
-# kumar dfvdf 
-# 
+# kumar dfvdf
+#
 # one
+# <class 'str'>
 
 
 ###############################################################
@@ -107,13 +120,13 @@ def abc(a, *b, **c):
 #     print("\n")
 #     for j in c.items():
 #         print(j)
+#         print(type(j))
 # abc("anuj", "kumar", "dfvdf", one = {"a":"dbvfdfj", "two":"vknjd" , "three":"fklnhdf"})
 # first argument is  anuj
-# kumar dfvdf 
-# 
+# kumar dfvdf
+#
 # ('one', {'a': 'dbvfdfj', 'two': 'vknjd', 'three': 'fklnhdf'})
-
-
+# <class 'tuple'>
 
 
 ###############################################################
@@ -124,11 +137,13 @@ def abc(a, *b, **c):
 #     print("\n")
 #     for j in c.values():
 #         print(j)
+#         print(type(j))
 # abc("anuj", "kumar", "dfvdf", one = {"a":"dbvfdfj", "two":"vknjd" , "three":"fklnhdf"})
 # first argument is  anuj
-# kumar dfvdf 
-# 
+# kumar dfvdf
+#
 # {'a': 'dbvfdfj', 'two': 'vknjd', 'three': 'fklnhdf'}
+# <class 'dict'>
 
 
 
@@ -170,13 +185,17 @@ def abc(a, *b, **c):
 #     print("\n")
 #     for j in c.values():
 #         print(j)
+#         print(type(j))
 # abc("anuj", "kumar", "dfvdf", one = "dbvfdfj", two="vknjd" , three="fklnhdf")
 # first argument is  anuj
 # kumar dfvdf
 #
 # dbvfdfj
+# <class 'str'>
 # vknjd
+# <class 'str'>
 # fklnhdf
+# <class 'str'>
 
 
 
@@ -189,14 +208,13 @@ def abc(a, *b, **c):
 #     print("\n")
 #     for j in c.values():
 #         print(j)
+#         print(type(j))
 # abc("anuj", "kumar", "dfvdf", d= {"one":"dbvfdfj", "two":"vknjd" , "three":"fklnhdf"})
 # first argument is  anuj
 # kumar dfvdf
 #
-#{'one': 'dbvfdfj', 'two': 'vknjd', 'three': 'fklnhdf'}
-
-
-
+# {'one': 'dbvfdfj', 'two': 'vknjd', 'three': 'fklnhdf'}
+# <class 'dict'>
 
 ###############################################################
 # def abc(a, *b, **c):
@@ -297,13 +315,13 @@ def abc(a, *b, **c):
 
 
 ###############################################################
-# def myFun(**kwargs):
-#     for i in kwargs.items():
-#         print(i)
+def myFun(**kwargs):
+    for i in kwargs.items():
+        print(i)
 # myFun(a=10, b=20,c=30)
 # myFun(a="10", b="20",c="30")
-#myFun("a"="10", "b"="20","c"="30") #SyntaxError: keyword can't be an expression
-#myFun(1="10", 2="20",3="30") #SyntaxError: keyword can't be an expression
+# myFun("a"="10", "b"="20","c"="30") #SyntaxError: keyword can't be an expression
+#myFun('1'="10", 2="20",3="30") #SyntaxError: keyword can't be an expression
 #('a', 10)
 #('b', 20)
 #('c', 30)
@@ -379,11 +397,15 @@ def abc(a, *b, **c):
 # def myFun(**kwargs):
 #     for i in kwargs.keys():
 #         print("%s"%(i))
+#         print(type(i))
 # myFun(first ='Geeks', mid ='for', last='Geeks')
 # first
+# <class 'str'>
 # mid
+# <class 'str'>
 # last
-# no tuple as input
+# <class 'str'>
+# no tuple as input, string will be input as we have converted the tuple to string
 
 
 
@@ -407,10 +429,17 @@ def abc(a, *b, **c):
 # def myFun(**kwargs):
 #     for i in kwargs.keys():
 #         print("{}".format(i))
+#         print(type(i))
 # myFun(first ='Geeks', mid ='for', last='Geeks')
-#first
-#mid
-#last
+# first
+# <class 'str'>
+# mid
+# <class 'str'>
+# last
+# <class 'str'>
+# no tuple as input, string will be input as we have converted the tuple to string
+
+
 
 
 
