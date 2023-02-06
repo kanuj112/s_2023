@@ -15,19 +15,28 @@
 
 
 ###############################################################
-# def abc(a, *b, **c):
-#     print("first argument is ",a)
-#     for i in b:
-#         print(i, end = " ")
-#     print("\n")
-#     for j in c.items():
-#         print(j)
-# abc("anuj", "kumar", "dfvdf", one = "dbvfdfj", two="vknjd" , three="fklnhdf")
-#first argument is  anuj
-#kumar dfvdf 
-#('one', 'dbvfdfj')
-#('two', 'vknjd')
-#('three', 'fklnhdf')
+def abc(a, *b, **c):
+    print("first argument is ",a)
+    for i in b:
+        print(i, end = " ")
+        print(type(i))
+    print("\n")
+    for j in c.items():
+        print(j)
+        print(type(j))
+# first argument is  anuj
+# kumar <class 'str'>
+# dfvdf <class 'str'>
+#
+#
+# ('one', 'dbvfdfj')
+# <class 'tuple'>
+# ('two', 'vknjd')
+# <class 'tuple'>
+# ('three', 'fklnhdf')
+# <class 'tuple'>
+
+
 
 
 ###############################################################
@@ -40,6 +49,8 @@
 #         print(j)
 # abc("anuj", {'a':10} ,{'b':20},one = "dbvfdfj", two="vknjd" , three="fklnhdf")
 # abc({'a':10} ,{'b':20},"anuj",one = "dbvfdfj", two="vknjd" , three="fklnhdf")
+
+
 # first argument is  anuj
 # {'a': 10} {'b': 20}
 #
