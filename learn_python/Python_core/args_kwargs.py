@@ -6,7 +6,6 @@
 # * args allows us to do is take an in more aeguments than the number of formal of arguments that you previously defined.
 # with * args,any number of extra arguments can be tracked on to your current formal parameter.
 
-
 ###############################################################
 # 1. kwargs : The special syntax **kwargs in function definations in python is used to pass a keyword, variable-length
 # argument list.
