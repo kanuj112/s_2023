@@ -1,4 +1,5 @@
 #args_kwargs.py
+
 ###############################################################
 # 1. Args ==> The special syntax "*" is function in python is used to pass variable number of arguments to a function.
 # 2. It is used to pass non-keyworded variable-length argument list.
@@ -15,15 +16,15 @@
 
 
 ###############################################################
-def abc(a, *b, **c):
-    print("first argument is ",a)
-    for i in b:
-        print(i, end = " ")
-        print(type(i))
-    print("\n")
-    for j in c.items():
-        print(j)
-        print(type(j))
+# def abc(a, *b, **c):
+#     print("first argument is ",a)
+#     for i in b:
+#         print(i, end = " ")
+#         print(type(i))
+#     print("\n")
+#     for j in c.items():
+#         print(j)
+#         print(type(j))
 # first argument is  anuj
 # kumar <class 'str'>
 # dfvdf <class 'str'>
@@ -315,9 +316,9 @@ def abc(a, *b, **c):
 
 
 ###############################################################
-def myFun(**kwargs):
-    for i in kwargs.items():
-        print(i)
+# def myFun(**kwargs):
+#     for i in kwargs.items():
+#         print(i)
 # myFun(a=10, b=20,c=30)
 # myFun(a="10", b="20",c="30")
 # myFun("a"="10", "b"="20","c"="30") #SyntaxError: keyword can't be an expression
@@ -452,7 +453,7 @@ def myFun(**kwargs):
 # ('first', 'Geeks')
 # ('mid', 'for')
 # ('last', 'Geeks')
-#checkpoint01
+
 
 
 
@@ -485,8 +486,10 @@ def myFun(**kwargs):
 ###############################################################
 # def test_var_kwargs(farg, **kwargs):
 #     print("formal arg:", farg)
+#     print("formal arg:", type(farg))
 #     for i in kwargs.items():
 #         print(i)
+#         print(type(i))
 # test_var_kwargs(farg=1, myarg2="two", myarg3=3)
 #formal arg: 1
 #('myarg2', 'two')
@@ -538,13 +541,13 @@ def myFun(**kwargs):
 
 
 
-###############################################################
+# ###############################################################
 # def myFun(arg1, *argv,**abc):
 #     print ("First argument :", arg1)
 #     for arg in argv:
 #         print("Next argument through *argv :", arg)
 #     for i in abc.items():
-#         print("Next argument through *argv :", i)
+#         print("Next to next argument through **argv :", i)
 # myFun('Hello', 'Welcome', 'to', 'GeeksforGeeks')
 # First argument : Hello
 # Next argument through *argv : Welcome
@@ -558,10 +561,14 @@ def myFun(**kwargs):
 # def myFun(**kwargs):
 #     for key, value in kwargs.items():
 #         print ("%s == %s" %(key, value))
+#         print (type("%s == %s" %(key, value)))
 # myFun(first ='Geeks', mid ='for', last='Geeks')
-#first == Geeks
-#mid == for
-#last == Geeks
+# first == Geeks
+# <class 'str'>
+# mid == for
+# <class 'str'>
+# last == Geeks
+# <class 'str'>
 
 
 
@@ -583,6 +590,14 @@ def myFun(**kwargs):
 #         print ("%s",%i)
 # myFun(first ='Geeks', mid ='for', last='Geeks')
 #SyntaxError: invalid syntax
+
+
+###############################################################
+# def myFun(**kwargs):
+#     for i in kwargs.items():
+#         print ("%s"%i)
+# myFun(first ='Geeks', mid ='for', last='Geeks')
+# TypeError: not all arguments converted during string formatting
 
 
 
@@ -645,11 +660,11 @@ def myFun(**kwargs):
 ###############################################################
 # def myFun(arg1, **kwargs):
 #     for key, value in kwargs.items():
-#         print ("%s == %s" %(key, value))
+#         print ("%s ===== %s" %(key, value))
 # myFun("Hi", first ='Geeks', mid ='for', last='Geeks')
-#first == Geeks
-#mid == for
-#last == Geeks
+# first ===== Geeks
+# mid ===== for
+# last ===== Geeks
 
 
 
@@ -700,6 +715,17 @@ def myFun(**kwargs):
 #TypeError: test_var_kwargs() got an unexpected keyword argument 'myarg2'
 
 
+###############################################################
+# def test_var_kwargs(farg, **kwargs):
+#     print("formal arg:", farg)
+#     for i in kwargs.items():
+#         print(i)
+# test_var_kwargs(farg=1, myarg2="two", myarg3=3)
+# formal arg: 1
+# ('myarg2', 'two')
+# ('myarg3', 3)
+
+
 
 ###############################################################
 # def myFun(arg1, arg2, arg3):
@@ -720,6 +746,21 @@ def myFun(**kwargs):
 #arg3: Geeks
 
 
+###############################################################
+# def myFun(arg1, arg2, arg3):
+#     print("arg1:", arg1)
+#     print("arg2:", arg2)
+#     print("arg3:", arg3)
+# # Now we can use *args or **kwargs to
+# # pass arguments to this function :
+# args = ("Geeks", "for", "Geeks")
+# myFun(*args)
+# kwargs = {"arg11" : "Geeks", "arg2" : "for", "arg3" : "Geeks"}
+# myFun(**kwargs)
+# arg1: Geeks
+# arg2: for
+# arg3: Geeks
+# TypeError: myFun() got an unexpected keyword argument 'arg11'
 
 
 ###############################################################
@@ -744,6 +785,7 @@ def myFun(**kwargs):
 #         print("{} is {}".format(key,value))
 # intro(Firstname="Sita", Lastname="Sharma", Age=22, Phone=1234567890)
 # intro(Firstname="John", Lastname="Wood", Email="johnwood@nomail.com", Country="Wakanda", Age=25, Phone=9876543210)
+
 #Data type of argument: <class 'dict'>
 #Firstname is Sita
 #Lastname is Sharma
@@ -813,11 +855,33 @@ def myFun(**kwargs):
 # def test_var_kwargs(farg, **kwargs):
 #     print("formal arg:", farg)
 #     for key in kwargs:
-#         print("another keyword arg: %s: %s" % (key, kwargs[key]))
+#         print("another keyword arg is : %s: %s" % (key, kwargs[key]))
 # test_var_kwargs(farg=1, myarg2="two", myarg3=3)
 #formal arg: 1
 #another keyword arg: myarg2: two
 #another keyword arg: myarg3: 3
+
+
+# def test_var_kwargs(farg, **kwargs):
+#     print("formal arg:", farg)
+#     for key, value in kwargs.items():
+#         print("another keyword arg is : %s: %s" % (key,value ))
+# test_var_kwargs(farg=1, myarg2="two", myarg3=3)
+# formal arg: 1
+# another keyword arg is : myarg2: two
+# another keyword arg is : myarg3: 3
+
+
+
+# def test_var_kwargs(farg, **kwargs):
+#     print("formal arg:", farg)
+#     for key in kwargs:
+#         print("another keyword arg is : %s: %s" % (key,kwargs[key] ))
+# test_var_kwargs(farg=1, myarg2="two", myarg3=3)
+# formal arg: 1
+# another keyword arg is : myarg2: two
+# another keyword arg is : myarg3: 3
+
 
 
 
@@ -844,6 +908,7 @@ def myFun(**kwargs):
 #     print("{} is {}".format(x,y))
 # abc(name="anuj",city="patna")
 # abc(name="aman",city="agra",rollno=101,company="NIIT")
+
 #name is anuj
 #city is patna
 #name is aman
@@ -871,19 +936,18 @@ def myFun(**kwargs):
 # def test_var_kwargs(farg, **kwargs):
 #     print("formal arg:", farg)
 #     for key,value in kwargs.items():
-#         print("another keyword arg: %s: %s" % (key, value))
+#         print("another keyword arg: %s:::::: %s" % (key, value))
 # test_var_kwargs(farg=1, myarg2="two", myarg3=3)
 # formal arg: 1
-# another keyword arg: myarg2: two
-# another keyword arg: myarg3: 3
-
+# another keyword arg: myarg2:::::: two
+# another keyword arg: myarg3:::::: 3
 
 
 
 ###############################################################
 # def abc(a,*b):
 #     print("the first parameter is ",a)
-#     for i in (b):
+#     for i in b:
 #         print("the second paameter is ",i)
 # abc("anuj","aman","anshu","chetan")
 #the first parameter is  anuj
