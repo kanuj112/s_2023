@@ -1,7 +1,5 @@
 #closure.py
 
-
-
 ########################################################################
 # 1. Before getting into what a closure is, we have to first understand what a nested function and nonlocal variable is.
 # 2. A function defined inside another function is called a nested function.
@@ -12,54 +10,79 @@
 # base concept of decorator is closure
 # 6. First class function
 
+########################################################################
+# def gen_multiplier(x):
+#     print("value of x is ", x)
+#     def multiplier(y):
+#         print("value of x is ",y)
+#         print( x * y)
+#     return multiplier
+# obj = gen_multiplier(10)
+# value of x is  10
+
+
+########################################################################
+# def gen_multiplier(x):
+#     print("value of x is ", x)
+#     def multiplier(y):
+#         print("value of x is ",y)
+#         print( x * y)
+#     return multiplier
+# obj = gen_multiplier(10)
+# obj(5)
+# value of x is  10
+# value of x is  5
+# 50
 
 
 
 ########################################################################
 # def gen_multiplier(x):
+#     print("value of x is ", x)
 #     def multiplier(y):
-#         return x * y
+#         print("value of x is ",y)
+#         print( x * y)
 #     return multiplier
 # obj = gen_multiplier(10)
 # print(obj(5))
-#50
-
-
+# value of x is  10
+# value of x is  5
+# 50
+# None
 
 
 
 
 ########################################################################
 # def gen_multiplier(x):
-#
+#     print("value of x ", x)
 #     def multiplier(y):
 #         return x * y
 #     return multiplier
-#
 #     def multiplier(y):
 #         return x + y
 #     return multiplier
-#
 # obj = gen_multiplier(10)
 # print(obj(5))
+# value of x  10
+# 50
 #15 it wont call the second function. it will calll only immediate function
 
 
 
 ########################################################################
 # def gen_multiplier(x):
-#
+#     print("value of x is ",x)
 #     def multiplier(y):
 #         return x * y
 #     return multiplier
-#
 #     def multiplier(y):
 #         return x + y
-#     return multiplier() #it wont reach here
-#
+#     return multiplier() #it won't reach here
 # obj = gen_multiplier(10)
 # print(obj(5))
-#50
+# value of x is  10
+# 50
 
 
 
@@ -68,10 +91,10 @@
 # def gen_multiplier(x):
 #     def multiplier(y):
 #         return x * y
-#     return multiplier()
+#     return multiplier() #() it should not be there
 # obj = gen_multiplier(10)
 # print(obj(5))
-#TypeError: multiplier() missing 1 required positional argument: 'y'
+# TypeError: gen_multiplier.<locals>.multiplier() missing 1 required positional argument: 'y'
 
 
 
@@ -80,11 +103,14 @@
 # def gen_multiplier():
 #     x = 10
 #     def multiplier(y):
+#         print("in inner")
 #         return x * y
 #     return multiplier
-# obj = gen_multiplier()
-# print(obj(5))
-#50
+# x = gen_multiplier()
+# print(x(2))
+# in inner
+# 20
+
 
 
 
@@ -121,7 +147,7 @@
 #         print(a+b)
 #     return inner
 # obj = outer(5)
-# print(obj(10))
+# obj(10)
 # #5
 #15
 #none
@@ -258,7 +284,7 @@
 #         print(y)
 #         return x * y * a #x is non local to multiplier
 #     return multiplier
-# #call the function
+#call the function
 # obj = gen_multiplier(10)
 # del gen_multiplier #it will delete
 # print(obj(5))
