@@ -1,12 +1,15 @@
 #closure.py
 
 ########################################################################
-# 1. Before getting into what a closure is, we have to first understand what a nested function and nonlocal variable is.
+# 1. Before getting into what a closure is, we have to first understand what a nested
+# function and nonlocal variable is.
 # 2. A function defined inside another function is called a nested function.
 # 3. Nested functions can access variables of the enclosing scope.
 # 4. In Python, these non-local variables are read only by default and
-# 5. we must declare them explicitly as non-local (using nonlocal keyword) in order to modify them
-# ==> A Closure is a function object that remembers values in enclosing scopes even if they are not present in memory.
+# 5. we must declare them explicitly as non-local (using nonlocal keyword) in order to
+# modify them
+# ==> A Closure is a function object that remembers values in enclosing scopes even
+# if they are not present in memory.
 # base concept of decorator is closure
 # 6. First class function
 
@@ -20,18 +23,17 @@
 # obj = gen_multiplier(10)
 # value of x is  10
 
-########################################################################
+
 # def gen_multiplier(x):
 #     print("value of x is ", x)
 #     def multiplier(y):
-#         print("value of x is ",y)
-#         print( x * y)
+#         print("value of y is ",y)
+#         print( "value is x*y is ", x * y)
+#         return x*y
 #     return multiplier
 # obj = gen_multiplier(10)
-# obj(5)
 # value of x is  10
-# value of x is  5
-# 50
+
 
 ########################################################################
 # def gen_multiplier(x):
@@ -41,11 +43,69 @@
 #         print( x * y)
 #     return multiplier
 # obj = gen_multiplier(10)
-# print(obj(5))
+# obj(5)
+# value of x is  10
+# value of y is  5
+# 50
+
+########################################################################
+def gen_multiplier(x):
+    print("value of x is ", x)
+    def multiplier(y):
+        print("value of y is ",y)
+        print( x * y)
+    return multiplier
+obj = gen_multiplier(10)
+print(obj(5))
 # value of x is  10
 # value of x is  5
 # 50
-# None  # None is coming because return is there in multiplier and also we are printing(obj(5))
+# None
+
+
+def gen_multiplier(x):
+    print("value of x is ", x)
+    def multiplier(y):
+        print("value of y is ",y)
+        print( "value is ", x * y)
+        return x*y
+    return multiplier
+obj = gen_multiplier(10)
+print(obj(5))
+# value of x is  10
+# value of y is  5
+# value is  50
+# 50
+
+
+# def gen_multiplier(x):
+#     print("value of x is ", x)
+#     def multiplier(y):
+#         print("value of y is ",y)
+#         print( "value is ", x * y)
+#         return x*y
+#     return multiplier
+# obj = gen_multiplier(10)
+# obj(5)
+# value of x is  10
+# value of y is  5
+# value is  50
+
+
+
+# def gen_multiplier(x):
+#     print("value of x is ", x)
+#     def multiplier(y):
+#         print("value of y is ",y)
+#         print( "value is ", x * y)
+#         # return x*y
+#     return multiplier
+# obj = gen_multiplier(10)
+# print(obj(5))
+# value of x is  10
+# value of y is  5
+# value is  50
+# None
 
 ########################################################################
 # def gen_multiplier(x):
@@ -68,12 +128,13 @@
 # def gen_multiplier(x):
 #     print("value of x ", x)
 #     def multiplier(y):
-#         print(x*y)
-#         # return x * y
+#         print("x * y is ",x*y)
+#         return x * y
 #     return multiplier
-#     def multiplier(y):
-#         return x + y
-#     return multiplier
+#     # def multiplier(y):
+#     #     print("abc")
+#     #     return x + y
+#     # return multiplier
 # obj = gen_multiplier(10)
 # print(obj(5))
 # value of x  10
