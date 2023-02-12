@@ -20,7 +20,6 @@
 # obj = gen_multiplier(10)
 # value of x is  10
 
-
 ########################################################################
 # def gen_multiplier(x):
 #     print("value of x is ", x)
@@ -34,13 +33,11 @@
 # value of x is  5
 # 50
 
-
-
 ########################################################################
 # def gen_multiplier(x):
 #     print("value of x is ", x)
 #     def multiplier(y):
-#         print("value of x is ",y)
+#         print("value of y is ",y)
 #         print( x * y)
 #     return multiplier
 # obj = gen_multiplier(10)
@@ -48,16 +45,31 @@
 # value of x is  10
 # value of x is  5
 # 50
-# None
+# None  # None is coming because return is there in multiplier and also we are printing(obj(5))
 
-
+########################################################################
+# def gen_multiplier(x):
+#     print("value of x ", x)
+#     def multiplier(y):
+#         print("value is x*y is ",x*y)
+#         return x * y
+#     return multiplier
+#     def multiplier(y):
+#         return x + y
+#     return multiplier
+# obj = gen_multiplier(10)
+# obj(5)
+# value of x  10
+# value is x*y is  50
+#15 it wont call the second function. it will calll only immediate function
 
 
 ########################################################################
 # def gen_multiplier(x):
 #     print("value of x ", x)
 #     def multiplier(y):
-#         return x * y
+#         print(x*y)
+#         # return x * y
 #     return multiplier
 #     def multiplier(y):
 #         return x + y
@@ -66,8 +78,7 @@
 # print(obj(5))
 # value of x  10
 # 50
-#15 it wont call the second function. it will calll only immediate function
-
+# None  # none is coming because no return is there in multiplier function
 
 
 ########################################################################
@@ -87,7 +98,7 @@
 
 
 
-# ########################################################################
+########################################################################
 # def gen_multiplier(x):
 #     def multiplier(y):
 #         return x * y
@@ -99,7 +110,7 @@
 
 
 
-# ########################################################################
+########################################################################
 # def gen_multiplier():
 #     x = 10
 #     def multiplier(y):
@@ -111,6 +122,17 @@
 # in inner
 # 20
 
+
+########################################################################
+# def gen_multiplier():
+#     x = 10
+#     print("value of x is ",x)
+#     def multiplier(y):
+#         print("in inner")
+#         return x * y
+#     return multiplier
+# x = gen_multiplier()
+# value of x is  10
 
 
 
@@ -128,6 +150,21 @@
 
 
 
+# def gen_multiplier():
+#     x = 10 #non-local variable
+#     print("value of x is ",x)
+#     def multiplier(y): #stores the reference to non-local variable
+#         print("value of y is ",y)
+#         return x * y #x is non local to multiplier
+#     return multiplier
+# #call the function
+# obj = gen_multiplier()
+# del gen_multiplier #it will delete
+# value of x is  10
+
+
+
+
 
 # ########################################################################
 # def outer(a):
@@ -148,9 +185,8 @@
 #     return inner
 # obj = outer(5)
 # obj(10)
-# #5
-#15
-#none
+# 5
+# 15
 
 
 
@@ -163,11 +199,24 @@
 #     return inner
 # obj = outer(5)
 # print(obj(10))
-# obj(10)
-#5
-#15
-#None
-#15
+# 5
+# 15
+# None
+
+
+
+# def outer(a):
+#     print(a)
+#     def inner(b):
+#         print(a+b)
+#     return inner
+# obj = outer(5)
+# print(obj(10))
+# obj(15)
+# 5
+# 15
+# None
+# 20
 
 
 #########################################################################
@@ -198,7 +247,7 @@
 #15
 
 
-# #########################################################################
+#########################################################################
 # def outer(a):
 #     print(a)
 #     def inner(b):
